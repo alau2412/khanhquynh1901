@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Chủ - Trang Web Của Tôi</title>
+    <style>
+        /* Thiết lập cơ bản */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            background: #ececec;
+            overflow-x: hidden;
+        }
+
+        /* Nền động với gradient */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff5e62, #ff9966, #ffcc33);
+            background-size: 400% 400%;
+            animation: gradientMove 15s ease infinite;
+            z-index: -1;
+        }
+
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Thanh điều hướng */
+        nav {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 15px 30px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            border-bottom: 2px solid #ff9966;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        nav a {
+            color: #ffcc33;
+            font-size: 1.2rem;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+        nav a:hover {
+            background: #ff9966;
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        /* Các phần nội dung */
+        section {
+            padding: 100px 20px;
+            text-align: center;
+            min-height: 100vh;
+            margin-top: 70px;
+            animation: fadeIn 2s ease-out;
+        }
+
+        /* Phần Trang Chủ */
+        #home {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: #f1f1f1;
+            animation: slideIn 2s ease-out;
+        }
+        #home h1 {
+            font-size: 4rem;
+            text-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px;
+        }
+        #home p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            line-height: 1.8;
+            color: #eeeeee;
+            margin-top: 20px;
+        }
+
+        /* Hiệu ứng khi xuất hiện */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Phần Giới Thiệu */
+        #about {
+            background-color: #ffcc33;
+            color: #333;
+            padding: 60px 20px;
+        }
+        #about h2 {
+            font-size: 2.5rem;
+            color: #ff5e62;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        #about p {
+            font-size: 1.3rem;
+            color: #333;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto;
+            padding-top: 20px;
+        }
+        #about .highlight {
+            color: #ff5e62;
+            font-weight: bold;
+        }
+
+        /* Phần Sở Thích */
+        #hobbies {
+            padding: 80px 20px;
+            background-color: #444;
+        }
+        #hobbies h2 {
+            font-size: 2.5rem;
+            color: #ff5e62;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+        .hobby-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .hobby-item {
+            background: rgba(255, 99, 71, 0.9);
+            padding: 20px;
+            width: 280px;
+            margin: 15px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hobby-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+        .hobby-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .hobby-item h3 {
+            margin-top: 10px;
+            font-size: 1.4rem;
+        }
+        .hobby-item p {
+            font-size: 1.1rem;
+            color: #fff;
+            margin-top: 10px;
+        }
+        
+        /* Video */
+        .video-container {
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        .video-container iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+
+        /* Phần Liên Hệ */
+        #contact {
+            background-color: #222;
+            color: #fff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        #contact h2 {
+            font-size: 2.5rem;
+            color: #ff5e62;
+            margin-bottom: 20px;
+        }
+        #contact p {
+            font-size: 1.3rem;
+            color: #f1f1f1;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        #contact a {
+            color: #ff5e62;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+        #contact a:hover {
+            color: #ff9966;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #111;
+            color: #ff5e62;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Thanh điều hướng -->
+    <nav>
+        <a href="#home">Trang Chủ</a>
+        <a href="#about">Giới Thiệu</a>
+        <a href="#hobbies">Sở Thích</a>
+        <a href="#contact">Liên Hệ</a>
+    </nav>
+
+    <!-- Phần Trang Chủ -->
+    <section id="home">
+        <h1>Chào Mừng Đến Với Trang Web Của Tôi</h1>
+        <p>Khám phá sự sáng tạo và đam mê trong từng khoảnh khắc của tôi. Hãy cùng tôi hành trình này!</p>
+    </section>
+
+    <!-- Phần Giới Thiệu -->
+            <section id="about">
+        <h2>Giới Thiệu Bản Thân</h2>
+        <div class="about-content">
+            <!-- Phần trái (Ảnh bản thân) -->
+            <div class="left">
+                <img src="https://scontent.fdad1-4.fna.fbcdn.net/v/t1.15752-9/465230618_903068788586021_8732719331188708611_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=9f807c&_nc_ohc=Y2BaV5BYdAQQ7kNvgHfJL2C&_nc_zt=23&_nc_ht=scontent.fdad1-4.fna&oh=03_Q7cD1QFIeqYVg...6768B891" alt="Ảnh bản thân">
+            </div>
+
+            <!-- Phần phải (Giới thiệu chi tiết) -->
+            <div class="right">
+                <h3>Về Tôi</h3>
+                <p>Chào bạn! Tôi là <span class="highlight">BÙI THỊ KHÁNH QUỲNH </span>, một người yêu thích khám phá các nền văn hóa và ẩm thực đặc sắc từ khắp nơi trên thế giới. Tôi hiện đang sống tại <span class="highlight">QUẢNG HƯNG,QUẢNG TRẠCH,QUẢNG BÌNH </span> và học tại trường <span class="highlight">TRƯỜNG THPT LƯƠNG THẾ VINH </span>, lớp <span class="highlight">12A5 </span>.</p>
+                <p>Tôi luôn muốn truyền cảm hứng đến mọi người qua những chuyến đi và những bài viết của mình. Hy vọng bạn sẽ tìm thấy niềm vui khi ghé thăm trang web này!</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Phần Sở Thích -->
+    <section id="hobbies">
+        <h2>Sở Thích</h2>
+        <div class="hobby-list">
+            <div class="hobby-item">
+                <img src="https://via.placeholder.com/250x200?text=Du+Lịch" alt="Du Lịch">
+                <h3>Du Lịch Khám Phá</h3>
+                <p>Khám phá những địa danh mới và tìm hiểu về văn hóa độc đáo của các nơi khác nhau.</p>
+            </div>
+            <div class="hobby-item">
+                <img src="https://via.placeholder.com/250x200?text=Chụp+Ảnh" alt="Chụp Ảnh">
+                <h3>Chụp Ảnh</h3>
+                <p>Chụp lại những khoảnh khắc đẹp và những khung cảnh thiên nhiên tuyệt vời.</p>
+            </div>
+            <div class="hobby-item">
+                <img src="https://via.placeholder.com/250x200?text=Đọc+Sách" alt="Đọc Sách">
+                <h3>Đọc Sách</h3>
+                <p>Đọc những cuốn sách giúp mở mang trí thức và khám phá những thế giới mới lạ.</p>
+            </div>
+        </div>
+
+        <!-- Video du lịch ẩm thực Việt Nam -->
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <!-- Phần Liên Hệ -->
+    <section id="contact">
+        <h2>Liên Hệ</h2>
+        <p>Hãy gửi email cho tôi qua địa chỉ: <a href="Buiquynh1901@gmail.com">example@example.com</a> để kết nối hoặc chia sẻ ý tưởng!</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 Trang Web Của Tôi. Cảm ơn bạn đã ghé thăm!
+    </footer>
+
+</body>
+</html>
